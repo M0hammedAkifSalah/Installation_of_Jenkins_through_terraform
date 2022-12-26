@@ -77,7 +77,7 @@ resource "null_resource" "name" {
     }
     
   
-}
+
 
 provisioner "file" {
     source = "install_jenkins.sh"
@@ -87,8 +87,14 @@ provisioner "file" {
 provisioner "remote-exec" {
     inline = [
         "sudo chmod +x /tmp/install_jenkins.sh",
-        "sh /tmp/install_jenkins.sh"
+        "sh /tmp/install_jenkins.sh" 
 
     ]
+
+}
+
+depends_on = [
+    aws_instance.jenkins_server
+]
 
 }
