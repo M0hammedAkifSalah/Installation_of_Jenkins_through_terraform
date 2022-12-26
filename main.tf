@@ -86,8 +86,9 @@ provisioner "file" {
 
 provisioner "remote-exec" {
     inline = [
-        "sudo chmod +x /tmp/install_jenkins.sh"
+        "sudo chmod +x /tmp/install_jenkins.sh",
         "sh /tmp/install_jenkins.sh"
+
     ]
 
 }
